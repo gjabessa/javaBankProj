@@ -8,16 +8,22 @@ abstract class Account {
 	int accountNumber;
 	String password;
 	int phone;
-	boolean isNewAccount;
+	boolean isNewAccount = true;
 	double balance;
 	Transaction transaction;
 	int monthlyInterest;
 	List<Notification> notifications = new ArrayList<Notification>();
 	Admin admin;
-	public enum role {USER, ADMIN};
+	String reward = "";
 	
-	Account(Admin admin){
+	accountType accType;
+	
+	Account(Admin admin,String firstname, String lastname, int phone, accountType accType){
 		this.admin = admin;
+		this.generateAccountNo();
+		this.generatePassword(firstname, lastname);
+		this.phone = phone;
+		this.accType = accType;
 	}
 	void setName(String firstName, String lastName) {
 		this.firstname = firstName;
@@ -30,10 +36,15 @@ abstract class Account {
 	
 	abstract int generateAccountNo();
 	
-	abstract int generatePassword(String firstName, String lastName);
+	abstract String generatePassword(String firstName, String lastName);
 	
 	double getBalance() {
 		return this.balance;
+	}
+	
+	void updatePassword(String pass){
+		this.password = pass;
+		this.isNewAccount = false;
 	}
 	
 	double withdrawMoney(double amount) {	
@@ -68,8 +79,7 @@ abstract class Account {
 		notifications.add(new Notification(notification,accountNumber));
 	}
 	
-	
-	
-	
-	
+	void setReward(String reward){
+		this.reward = reward;
+	}
 }

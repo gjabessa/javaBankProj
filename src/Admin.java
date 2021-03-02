@@ -2,15 +2,24 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Admin extends Account{
+public class Admin{
+	private String username = "admin";
+	private String password = "admin";
 
 	List<Account> accounts = new ArrayList<Account>();
-
+	
 	
 	void addAccount(Account acc) {
 		accounts.add(acc);
 	}
 	
+	void createAccount(String firstname, String lastname, String phone, accountType accType) {
+		
+	}
+	
+	boolean login(String username,String password){
+		return this.username == username && this.password == password;
+	}
 	void updateAccount(Account acc) {
 		int index = accounts.indexOf(acc);
 		accounts.set(index, acc);
@@ -20,22 +29,5 @@ public class Admin extends Account{
 		return accounts.stream().filter(account -> (account.accountNumber == accountNumber)).collect(Collectors.toList()).get(0);
 	}
 	
-	@Override
-	int generateAccountNo() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	int generatePassword(String firstName, String lastName) {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	double getMonthInterest() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
 
 }
