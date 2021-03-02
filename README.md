@@ -8,29 +8,29 @@ An account has 3 options, 1. Check balance, 2. Withdraw money, 3. Transfer money
 
 Finally, Admin has access to the bank dashboard, where admin can see the daily transactions, total available amount in all accounts, how much money the bank has made each day, each month, each week, and how much has been spent on loan and credit.
 # Objects
-•	Admin
-•	Admin Panel
-•	Account (polymorphic to Savings, Credit, Checking)
-•	Transaction
-•	Reward
-•	Notification
-•	Bank 
-•	Bank Dashboard
+	Admin
+	Admin Panel
+	Account (polymorphic to Savings, Credit, Checking)
+	Transaction
+	Reward
+	Notification
+	Bank 
+	Bank Dashboard
 # Verbs
-•	Login 
-•	Register an account
-•	Generate temporary password and permanent account number
-•	getInterestRate
-•	withdraw money
-•	reward monthly
-•	check whether account is new
-•	notify
-•	deposit
-•	display daily transaction
-•	display total available amount in all accounts
-•	display how much money bank has made today
-•	display how much money bank 
-•	calculate total loan and credit
+	Login 
+	Register an account
+	Generate temporary password and permanent account number
+	getInterestRate
+	withdraw money
+	reward monthly
+	check whether account is new
+	notify
+	deposit
+	display daily transaction
+	display total available amount in all accounts
+	display how much money bank has made today
+	display how much money bank 
+	calculate total loan and credit
 
 
 

@@ -1,0 +1,4 @@
+
+interface Account extends User{
+	
+}
