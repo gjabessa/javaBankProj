@@ -1,4 +1,5 @@
-#Software Requirements Specification
+##Software Requirements Specification
+
 VERBS
 CLASSES
 Variables
@@ -20,7 +21,7 @@ Objects
 •	Notification
 •	Bank 
 •	Bank Dashboard
-#Verbs
+##Verbs
 •	Login 
 •	Register an account
 •	Generate temporary password and permanent account number
