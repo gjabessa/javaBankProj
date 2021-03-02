@@ -1,4 +1,4 @@
 
-public class Checking {
+public class Checking implements Account {
 
 }
