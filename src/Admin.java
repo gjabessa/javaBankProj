@@ -18,7 +18,7 @@ public class Admin{
 	}
 	
 	boolean login(String username,String password){
-		return this.username == username && this.password == password;
+		return (this.username.equals(password)) && (this.password.equals(password) );
 	}
 	void updateAccount(Account acc) {
 		int index = accounts.indexOf(acc);
