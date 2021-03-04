@@ -87,8 +87,8 @@
       <children>
             <PasswordField fx:id="password" layoutX="246.0" layoutY="152.0" />
             <TextField fx:id="accountNumber" layoutX="246.0" layoutY="117.0" />
-            <Button fx:id="loginBtn" layoutX="272.0" layoutY="221.0" mnemonicParsing="false" onAction="#handleLogin" text="Login as Admin" />
-            <Button fx:id="loginBtn1" layoutX="263.0" layoutY="188.0" mnemonicParsing="false" onAction="#handleLogin" text="Login as Customer" />
+            <Button fx:id="loginBtn" layoutX="272.0" layoutY="221.0" mnemonicParsing="false" onAction="#handleLogin" text="Login" />
+            
       </children>
     </AnchorPane>
   </children>
