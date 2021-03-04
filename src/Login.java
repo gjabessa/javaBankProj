@@ -9,6 +9,7 @@ import javafx.fxml.FXMLLoader;
 
 public class Login extends Application {
 	public static void main(String[] args) {
+		
 		launch(args);
 	}
 
@@ -21,6 +22,7 @@ public class Login extends Application {
 		        getClass().getResource("loginPage.fxml")
 		      );
 		Parent root = loader.load();
+		
 		Scene scene = new Scene(root);
 		      
 				

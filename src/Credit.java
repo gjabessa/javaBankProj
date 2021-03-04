@@ -2,8 +2,8 @@ import java.util.Random;
 
 public class Credit extends Account{
 
-	Credit(Admin admin) {
-		super(admin);
+	Credit(Admin admin, String firstname, String lastname,int accountNumber,accountType accType) {
+		super(admin, firstname, lastname, accountNumber, accType);
 		// TODO Auto-generated constructor stub
 	}
 
@@ -14,11 +14,7 @@ public class Credit extends Account{
 		return rand.nextInt(32);
 	}
 
-	@Override
-	String generatePassword(String firstName, String lastName) {
-		// TODO Auto-generated method stub
-		return firstName+lastName.hashCode();
-	}
+
 
 	@Override
 	double getMonthInterest() {

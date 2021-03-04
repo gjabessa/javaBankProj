@@ -1,13 +1,13 @@
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.Random;
 
 abstract class Account {
-	String firstname;
-	String lastname;
+	String firstName;
+	String lastName;
 	int accountNumber;
 	String password;
-	int phone;
 	boolean isNewAccount = true;
 	double balance;
 	Transaction transaction;
@@ -15,30 +15,64 @@ abstract class Account {
 	List<Notification> notifications = new ArrayList<Notification>();
 	Admin admin;
 	String reward = "";
+	String accountStrType;
 	
 	accountType accType;
 	
 	Account(Admin admin,String firstname, String lastname, int phone, accountType accType){
 		this.admin = admin;
-		this.generateAccountNo();
-		this.generatePassword(firstname, lastname);
-		this.phone = phone;
+		this.password = this.generatePassword(firstname, lastname);
+		this.accountNumber = phone;
 		this.accType = accType;
+		this.setName(firstname, lastname);
+		this.accountStrType = this.accType.toString();
 	}
 	void setName(String firstName, String lastName) {
-		this.firstname = firstName;
-		this.lastname = lastName;
+		this.firstName = firstName;
+		this.lastName = lastName;
 	}
 	
-	 void setAccountNo(int number) {
+	
+	
+	 void setAccountNumber(int number) {
 		this.accountNumber = number;
 	}
+	 public int getAccountNumber() {
+		 return this.accountNumber;
+	 }
 	
+	 public String getAccountStrType() {
+		 return this.accountStrType;
+	 }
+	 
+	 public void setAccountStrType(String type) {
+		 accountType act;
+			
+			switch(type) {
+			case "Saving":
+				act = accountType.SAVINGS;
+				break;
+			case "Checking":
+				act = accountType.CHECKING;
+				break;
+			case "Credit":
+				act = accountType.CREDIT;
+				break;
+			default:
+				act = accountType.SAVINGS;
+				break;
+			}
+			this.accType = act;
+			this.accountStrType = type;
+	 }
 	abstract int generateAccountNo();
 	
-	abstract String generatePassword(String firstName, String lastName);
-	
-	double getBalance() {
+	String generatePassword(String firstName, String lastName) {
+		// TODO Auto-generated method stub
+		Random rand = new Random();
+		return String.valueOf(rand.nextInt(1000));
+	}
+	public double getBalance() {
 		return this.balance;
 	}
 	
@@ -47,6 +81,26 @@ abstract class Account {
 		this.isNewAccount = false;
 	}
 	
+	public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+    
+    public void setBalance(double balance) {
+    	this.balance = balance;
+    }
+
 	double withdrawMoney(double amount) {	
 		this.balance = this.balance - amount;
 		return this.balance;
@@ -81,5 +135,10 @@ abstract class Account {
 	
 	void setReward(String reward){
 		this.reward = reward;
+	}
+	
+	//toString for debug purpose
+	public String toString(){
+		return this.firstName+" account number: "+accountNumber+" password "+password;
 	}
 }
