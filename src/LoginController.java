@@ -13,14 +13,13 @@ import javafx.stage.Stage;
 public class LoginController {
 
 	@FXML public Button loginBtn;
-	@FXML public Button loginBtn1;
 	@FXML TextField accountNumber;
 	@FXML TextField password;
 	Login loginManager;
 	Admin admin;
 	@FXML
 	void handleLogin(ActionEvent evt) throws Exception{
-		if(evt.getSource() == loginBtn) {
+		if(accountNumber.getText().equals("admin")) {
 			loginBtn.setText("Loggin in ..");
 			if(this.login(accountNumber.getText(), password.getText())) {
 				Stage stage = (Stage) loginBtn.getScene().getWindow();
@@ -44,7 +43,7 @@ public class LoginController {
 				loginBtn.setText("Try again");
 			}
 		} else {
-			loginBtn1.setText("Loggin in");
+			loginBtn.setText("Loggin in");
 	
 				try {
 					if(this.loginCustomer(Integer.valueOf(accountNumber.getText()), password.getText())) {
@@ -65,15 +64,15 @@ public class LoginController {
 						stage.show();
 					} else {
 						//try again correctly
-						loginBtn1.setText("Try again");
+						loginBtn.setText("Try again");
 					}
 				} catch (NumberFormatException e) {
 					// TODO Auto-generated catch block
-					loginBtn1.setText("Invalid format ....");
+					loginBtn.setText("Invalid format ....");
 					e.printStackTrace();
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
-					loginBtn1.setText("something went wrong");
+					loginBtn.setText("something went wrong");
 					e.printStackTrace();
 				}
 		
